@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Extracted VBA Code</h1>
+<pre>{{ vba_code }}</pre>
+
+<h2>Analysis</h2>
+<h3>Procedures</h3>
+<ul>
+    {% for procedure in analysis_results.procedures %}
+    <li>{{ procedure }}</li>
+    {% endfor %}
+</ul>
+
+<h3>Functions</h3>
+<ul>
+    {% for function in analysis_results.functions %}
+    <li>{{ function }}</li>
+    {% endfor %}
+</ul>
+
+<h3>Variables</h3>
+<ul>
+    {% for variable in analysis_results.variables %}
+    <li>{{ variable }}</li>
+    {% endfor %}
+</ul>
+
+<a href="{{ url_for('index') }}">Upload another file</a>
+{% endblock %}
